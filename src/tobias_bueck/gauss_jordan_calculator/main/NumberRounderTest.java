@@ -25,11 +25,31 @@ class NumberRounderTest {
 
     @Test
     void getNormalisedNumber(){
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("9987"), "9.987");
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("0.0001234"), "1.234");
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("0.0000001234"), "1.234");
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("90000"), "9.0");
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("90001"), "9.0001");
-        Assertions.assertEquals(numberRounder.getNormalizedNumber("90001000"), "9.0001");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("9987"), "9.987");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("0.0001234"), "1.234");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("0.0000001234"), "1.234");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("90000"), "9.0");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("90001"), "9.0001");
+        Assertions.assertEquals(numberRounder.getNormalizedStringNumber("90001000"), "9.0001");
+    }
+
+    @Test
+    void getNormalisedNumberWithExponent(){
+        Assertions.assertEquals(
+                numberRounder.getNormalisedNumberWithExponent("99.34"),
+                new NormalisedNumber("9.934", 1)
+        );
+        Assertions.assertEquals(
+                numberRounder.getNormalisedNumberWithExponent("199.34"),
+                new NormalisedNumber("1.9934", 2)
+        );
+        Assertions.assertEquals(
+                numberRounder.getNormalisedNumberWithExponent("-99.34"),
+                new NormalisedNumber("-9.934", 1)
+        );
+        Assertions.assertEquals(
+                numberRounder.getNormalisedNumberWithExponent("0.001"),
+                new NormalisedNumber("1.0", -3)
+        );
     }
 }

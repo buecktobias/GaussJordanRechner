@@ -9,14 +9,20 @@ package tobias_bueck.gauss_jordan_calculator.main;
 final class NumberRounder {
     private StringFormatter stringFormatter;
 
-    NumberRounder(StringFormatter stringFormatter) {
+    NumberRounder(final StringFormatter stringFormatter) {
         this.stringFormatter = stringFormatter;
     }
+    boolean isPositiveNumber(final String number){
+        return Double.parseDouble(number) > 0;
+    }
+    boolean isPositiveNumber(final double number){
+        return number > 0;
+    }
 
-    int getExponentOfNumber(String number){
+    int getExponentOfNumber(final String number){
         return getExponentOfNumber(Double.parseDouble(number));
     }
-    int getExponentOfNumber(double number){
+    int getExponentOfNumber(final double number){
         if(number == 0){
             return 0;
         } else{
@@ -25,10 +31,26 @@ final class NumberRounder {
         }
     }
 
-    String getNormalizedNumber(String number){
+    String getNormalizedStringNumber(final String number){
         final var numberWithoutDot = stringFormatter.removeDotFromString(number);
         final var numberWithoutZeros = stringFormatter.removeZerosFromStartAndEnd(numberWithoutDot);
         return stringFormatter.insertDotAtSecondPosition(numberWithoutZeros);
+    }
 
+    NormalisedNumber getNormalisedNumberWithExponent(final String number){
+        final var isPositive = isPositiveNumber(number);
+        final var absoluteNumber = stringFormatter.removeMinusFromString(number);
+        final var normalisedNumber = getNormalizedStringNumber(absoluteNumber);
+        final String normalisedNumberMinus;
+        if(isPositive){
+            normalisedNumberMinus = normalisedNumber;
+        }else{
+            normalisedNumberMinus = "-" + normalisedNumber;
+        }
+
+        return new NormalisedNumber(normalisedNumberMinus, getExponentOfNumber(number));
+    }
+    NormalisedNumber getNormalisedNumberWithExponent(final double number){
+        return getNormalisedNumberWithExponent(String.valueOf(number));
     }
 }

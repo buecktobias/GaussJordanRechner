@@ -4,6 +4,9 @@ class StringFormatter {
     String removeDotFromString(String number){
         return number.replace(".", "");
     }
+    String removeMinusFromString(String number){
+        return number.replace("-", "");
+    }
     String removeZerosFromStart(String string){
         if(string.length() == 1){
             return string;
