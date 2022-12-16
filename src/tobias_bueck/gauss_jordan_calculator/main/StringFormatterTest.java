@@ -59,4 +59,12 @@ class StringFormatterTest {
         Assertions.assertEquals(stringFormatter.getLastChar("1234"), '4');
         Assertions.assertEquals(stringFormatter.getLastChar("1"), '1');
     }
+
+    @Test
+    void insertDotAtPositionOne(){
+        Assertions.assertEquals(stringFormatter.insertDotAtSecondPosition("123"), "1.23");
+        Assertions.assertEquals(stringFormatter.insertDotAtSecondPosition("1"), "1.0");
+        Assertions.assertEquals(stringFormatter.insertDotAtSecondPosition("198"), "1.98");
+        Assertions.assertEquals(stringFormatter.insertDotAtSecondPosition("9"), "9.0");
+    }
 }

@@ -34,5 +34,12 @@ class StringFormatter {
         }
         return removeZerosFromEnd(removeZerosFromStart(string));
     }
-
+    String insertDotAtSecondPosition(String string){
+        if(string.length() == 0){
+            throw new RuntimeException("String is Empty! String can not be Empty!");
+        }else if(string.length() == 1){
+            return string.charAt(0) + ".0";
+        }
+        return string.charAt(0) + "." + string.substring(1);
+    }
 }

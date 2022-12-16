@@ -24,4 +24,11 @@ final class NumberRounder {
             return (int) Math.floor(numberLog10);
         }
     }
+
+    String getNormalizedNumber(String number){
+        final var numberWithoutDot = stringFormatter.removeDotFromString(number);
+        final var numberWithoutZeros = stringFormatter.removeZerosFromStartAndEnd(numberWithoutDot);
+        return stringFormatter.insertDotAtSecondPosition(numberWithoutZeros);
+
+    }
 }

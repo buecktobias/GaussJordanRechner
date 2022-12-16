@@ -22,4 +22,14 @@ class NumberRounderTest {
         Assertions.assertEquals(numberRounder.getExponentOfNumber(1), 0);
         Assertions.assertEquals(numberRounder.getExponentOfNumber(0.1), -1);
     }
+
+    @Test
+    void getNormalisedNumber(){
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("9987"), "9.987");
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("0.0001234"), "1.234");
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("0.0000001234"), "1.234");
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("90000"), "9.0");
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("90001"), "9.0001");
+        Assertions.assertEquals(numberRounder.getNormalizedNumber("90001000"), "9.0001");
+    }
 }
