@@ -45,4 +45,8 @@ class StringFormatter {
         }
         return string.charAt(0) + "." + string.substring(1);
     }
+
+    String increaseStringValue(char c){
+        return String.valueOf(Integer.parseInt(String.valueOf(c)) +1);
+    }
 }

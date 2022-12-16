@@ -52,4 +52,10 @@ class NumberRounderTest {
                 new NormalisedNumber("1.0", -3)
         );
     }
+    @Test
+    void testRoundNumberTiesToEven(){
+        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.25",2),"1.3");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.256",2),"1.3");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.201",2),"1.2");
+    }
 }
