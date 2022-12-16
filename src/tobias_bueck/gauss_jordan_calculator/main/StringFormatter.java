@@ -49,4 +49,8 @@ class StringFormatter {
     String increaseStringValue(char c){
         return String.valueOf(Integer.parseInt(String.valueOf(c)) +1);
     }
+
+    boolean isCharEven(char c){
+        return Integer.parseInt(String.valueOf(c)) % 2 == 0;
+    }
 }
