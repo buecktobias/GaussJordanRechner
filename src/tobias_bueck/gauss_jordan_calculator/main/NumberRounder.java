@@ -1,9 +1,15 @@
 package tobias_bueck.gauss_jordan_calculator.main;
 
-public final class NumberRounder {
+/**
+ * 0.00256 2.56 * 10^-3 Manissen Länge 2 => 2.6
+ *
+ * normalisieren einer Zahl
+ * . entfernen dann alle 0 vorne und am ende entfernen . an 2.Stelle einfügen
+ */
+final class NumberRounder {
     private StringFormatter stringFormatter;
 
-    public NumberRounder(StringFormatter stringFormatter) {
+    NumberRounder(StringFormatter stringFormatter) {
         this.stringFormatter = stringFormatter;
     }
 
@@ -17,13 +23,5 @@ public final class NumberRounder {
             final var numberLog10 = Math.log10(Math.abs(number));
             return (int) Math.floor(numberLog10);
         }
-    }
-    boolean isAbsoluteNumberSmallerThanOne(String number){
-        return Math.abs(Double.parseDouble(number)) < 1;
-    }
-
-    int getExponentForAbsoluteNumberBiggerThanOne(String number){
-        final var absoluteNumber = stringFormatter.getStringWithoutMinus(number);
-        return absoluteNumber.indexOf('.');
     }
 }
