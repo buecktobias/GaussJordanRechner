@@ -8,7 +8,15 @@ public final class NumberRounder {
     }
 
     int getExponentOfNumber(String number){
-        return 0;
+        return getExponentOfNumber(Double.parseDouble(number));
+    }
+    int getExponentOfNumber(double number){
+        if(number == 0){
+            return 0;
+        } else{
+            final var numberLog10 = Math.log10(Math.abs(number));
+            return (int) Math.floor(numberLog10);
+        }
     }
     boolean isAbsoluteNumberSmallerThanOne(String number){
         return Math.abs(Double.parseDouble(number)) < 1;

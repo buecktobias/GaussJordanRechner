@@ -8,5 +8,6 @@ public class Main {
         System.out.println(Math.log10(200));
         System.out.println(Math.log10(0.02));
         System.out.println(Math.log10(0.0000001));
+        System.out.println(Math.log10(-100));
     }
 }

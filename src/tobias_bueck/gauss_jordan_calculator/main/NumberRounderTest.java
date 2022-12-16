@@ -30,4 +30,17 @@ class NumberRounderTest {
         Assertions.assertEquals(numberRounder.getExponentOfNumber("11.1"), 2);
         Assertions.assertEquals(numberRounder.getExponentOfNumber("100.1"), 3);
     }
+
+    @Test
+    void getExponentOfNumber(){
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(200), 2);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(100), 2);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(-100), 2);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(-999), 2);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(0.01), -2);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(10), 1);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(9), 0);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(1), 0);
+        Assertions.assertEquals(numberRounder.getExponentOfNumber(0.1), -1);
+    }
 }
