@@ -79,6 +79,9 @@ public final class NumberRounder {
     double getNormalisedNumberAverage(String normalisedNumber, int mantissenLengthIncreased) {
         return Double.parseDouble(normalisedNumber.substring(0, mantissenLengthIncreased) + "5");
     }
+    public double roundNumber(double number, int length){
+        return Math.round(number * Math.pow(10, length)) / Math.pow(10, length);
+    }
 
     String roundNumberAwayFromZero(String normalisedNumber, int mantissenLength){
         return normalisedNumber.substring(0, mantissenLength) +

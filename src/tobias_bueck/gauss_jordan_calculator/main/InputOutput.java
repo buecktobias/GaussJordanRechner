@@ -5,7 +5,7 @@ import tobias_bueck.gauss_jordan_calculator.main.string_formatter.StringFormatte
 
 import java.util.Scanner;
 
-public class InputOutput {
+public final class InputOutput {
     private final NumberRounder numberRounder;
 
     public InputOutput() {
@@ -21,7 +21,10 @@ public class InputOutput {
         while(scanner.hasNext()){
             var line = scanner.next();
             var result = numberRounder.normaliseAndRoundTiesToEven(String.valueOf(line), mantissenLength);
-            System.out.println("Das Ergebnis ist " + result.value() + "* 10^" + result.exponent());
+            System.out.print("Das Ergebnis ist " + result.value() + "* 10^" + result.exponent() +
+                    "; in dezimal form " );
+            System.out.printf("0.%f", result.getDoubleValue());
+            System.out.println();
             System.out.println("Gebe die zu rundende Zahl ein!");
         }
     }

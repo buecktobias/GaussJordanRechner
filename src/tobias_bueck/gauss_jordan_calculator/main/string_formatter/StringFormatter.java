@@ -1,6 +1,6 @@
 package tobias_bueck.gauss_jordan_calculator.main.string_formatter;
 
-public class StringFormatter {
+public final class StringFormatter {
     public String removeDotFromString(String number) {
         return number.replace(".", "");
     }
