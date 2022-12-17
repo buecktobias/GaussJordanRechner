@@ -1,9 +1,12 @@
 package tobias_bueck.gauss_jordan_calculator.main;
 
+import tobias_bueck.gauss_jordan_calculator.main.number_rounder.NumberRounder;
+import tobias_bueck.gauss_jordan_calculator.main.string_formatter.StringFormatter;
+
 import java.util.Scanner;
 
 public class InputOutput {
-    private NumberRounder numberRounder;
+    private final NumberRounder numberRounder;
 
     public InputOutput() {
         numberRounder = new NumberRounder(new StringFormatter());

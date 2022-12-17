@@ -1,4 +1,4 @@
-package tobias_bueck.gauss_jordan_calculator.main;
+package tobias_bueck.gauss_jordan_calculator.main.string_formatter;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

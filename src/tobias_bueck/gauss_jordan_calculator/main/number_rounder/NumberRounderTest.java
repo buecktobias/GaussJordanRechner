@@ -1,7 +1,10 @@
-package tobias_bueck.gauss_jordan_calculator.main;
+package tobias_bueck.gauss_jordan_calculator.main.number_rounder;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tobias_bueck.gauss_jordan_calculator.main.NormalisedNumber;
+import tobias_bueck.gauss_jordan_calculator.main.string_formatter.StringFormatter;
+
 class NumberRounderTest {
     private NumberRounder numberRounder;
     @org.junit.jupiter.api.BeforeEach
@@ -54,9 +57,9 @@ class NumberRounderTest {
     }
     @Test
     void testRoundNumberTiesToEven(){
-        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.25",2),"1.2");
-        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.35",2),"1.4");
-        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.256",2),"1.3");
-        Assertions.assertEquals(numberRounder.roundNormalisedNumber("1.201",2),"1.2");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumberRoundToNearestTiesToEven("1.25",2),"1.2");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumberRoundToNearestTiesToEven("1.35",2),"1.4");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumberRoundToNearestTiesToEven("1.256",2),"1.3");
+        Assertions.assertEquals(numberRounder.roundNormalisedNumberRoundToNearestTiesToEven("1.201",2),"1.2");
     }
 }

@@ -1,10 +1,13 @@
-package tobias_bueck.gauss_jordan_calculator.main;
+package tobias_bueck.gauss_jordan_calculator.main.number_rounder;
+
+import tobias_bueck.gauss_jordan_calculator.main.NormalisedNumber;
+import tobias_bueck.gauss_jordan_calculator.main.string_formatter.StringFormatter;
 
 /**
  * 0.00256 2.56 * 10^-3 Manissen Länge 2 => 2.6
  * <p>
  * normalisieren einer Zahl
- * . entfernen dann alle 0 vorne und am ende entfernen . an 2.Stelle einfügen
+ * . entfernen; dann alle 0 vorne und am ende entfernen; . an 2.Stelle einfügen
  * <p>
  * Normalisierte Zahl auf bestimmte Mantissenlänge runden
  * 1.358 => 1.4
@@ -21,10 +24,10 @@ package tobias_bueck.gauss_jordan_calculator.main;
  * }
  * }
  */
-final class NumberRounder {
-    private StringFormatter stringFormatter;
+public final class NumberRounder {
+    private final StringFormatter stringFormatter;
 
-    NumberRounder(final StringFormatter stringFormatter) {
+    public NumberRounder(final StringFormatter stringFormatter) {
         this.stringFormatter = stringFormatter;
     }
 
@@ -85,7 +88,7 @@ final class NumberRounder {
         return normalisedNumber.substring(0, mantissenLengthIncreased);
     }
 
-    String roundNormalisedNumber(String normalisedNumber, int mantissenLength) {
+    String roundNormalisedNumberRoundToNearestTiesToEven(final String normalisedNumber, final int mantissenLength) {
         final var mantissenLengthIncreased = mantissenLength + 1;
 
         assert mantissenLength >= 1 && normalisedNumber.length() >= 1;
@@ -107,9 +110,9 @@ final class NumberRounder {
             return roundNumberToZero(normalisedNumber, mantissenLengthIncreased);
         }
     }
-    NormalisedNumber normaliseAndRoundTiesToEven(String number, int mantissenLength){
+    public NormalisedNumber normaliseAndRoundTiesToEven(String number, int mantissenLength){
         final var normalisedNumber = getNormalisedNumberWithExponent(number);
-        final var roundedTiesToEven = roundNormalisedNumber(normalisedNumber.value(), mantissenLength);
+        final var roundedTiesToEven = roundNormalisedNumberRoundToNearestTiesToEven(normalisedNumber.value(), mantissenLength);
         return new NormalisedNumber(roundedTiesToEven, normalisedNumber.exponent());
     }
 }

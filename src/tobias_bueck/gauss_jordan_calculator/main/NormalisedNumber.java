@@ -1,4 +1,4 @@
 package tobias_bueck.gauss_jordan_calculator.main;
 
-record NormalisedNumber(String value, int exponent) {
+public record NormalisedNumber(String value, int exponent) {
 }
